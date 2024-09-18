@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="py-6 px-8">
+
+        <h1 class="text-3xl px-8 font-semibold">Add Project</h1>
+
+        <form class="mt-6 px-8 space-y-4" method="post" action=".">
+            {% csrf_token %}
+            <div>
+                <label>Name</label><br>
+                <input type="text" class="w-full py-4 px-6 bg-slate-400 text-white mt-2 rounded" name="name">
+            </div>
+            <div>
+                <label>Description</label><br>
+                <textarea rows="4" class="w-full py-4 px-6 text-white bg-slate-400 mt-2 rounded" name="description"></textarea>
+            </div>
+            <!-- <div>
+                <label>Assigned Team</label><br>
+                <input rows="4" class="w-full py-4 px-6 text-white bg-slate-400 mt-2 rounded" name="assigned_team"></input>
+            </div> -->
+            <div>
+                <button class="py-3 px-8 bg-sky-600 hover:bg-sky-700 text-white rounded">Add</button>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}
+
+
+<!-- <form method="POST">
+    {% csrf_token %}
+    <label for="name">Project Name:</label>
+    <input type="text" name="name" required>
+    <label for="description">Description:</label>
+    <textarea name="description" required></textarea>
+    <label for="members">Assign Team Members:</label>
+    <select name="members" multiple required>
+        {% for member in team_members %}
+            <option value="{{ member.id }}">{{ member.username }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Add Project</button>
+</form> -->
